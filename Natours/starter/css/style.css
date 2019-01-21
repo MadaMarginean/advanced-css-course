@@ -46,16 +46,22 @@ body {
     height: 35px;
 }
 
+/*.logo:hover {*/
+    /*animation: moveInRight 5s ease-out;*/
+/*}*/
+
 .text-box {
     position: absolute;
     top: 40%;
     left: 50%;
-    transform: translate(-50%, -50%); // for center the box alaturi de top si left
+    transform: translate(-50%, -50%); /* for center the box alaturi de top si left*/
 }
 
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
+
+    backface-visibility: hidden;
 }
 
 .heading-primary-main {
@@ -63,6 +69,15 @@ body {
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+/*
+    animation-delay: 3s;
+    animation-iteration-count: 3;
+*/
 }
 
 .heading-primary-sub {
@@ -70,4 +85,45 @@ body {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
+
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes moveInLeft {
+    0% {
+    /* unde incepe animatia*/
+        opacity: 0;
+        transform: translateX(-100px);
+        /* translateX -> de la stanga la dreapta (e in directia X*/
+                                       /* un nr pozitiv => de la dr la st*/
+    }
+
+    80% {
+        transform: translateX(10px) rotate(180deg);
+    }
+
+    100% {
+    /* unde se termina*/
+        opacity: 1;
+        transform: translate(0) rotate(180deg);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+    /* unde se termina*/
+        opacity: 1;
+        transform: translate(0);
+    }
 }
