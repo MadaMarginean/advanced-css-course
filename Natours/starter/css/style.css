@@ -55,6 +55,7 @@ body {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%); /* for center the box alaturi de top si left*/
+    text-align: center; /*folosit pt text, dar aici pt buton ca e declarat ca a href, deci e text*/
 }
 
 .heading-primary {
@@ -62,6 +63,7 @@ body {
     text-transform: uppercase;
 
     backface-visibility: hidden;
+    margin-bottom: 16px;
 }
 
 .heading-primary-main {
@@ -126,4 +128,69 @@ body {
         opacity: 1;
         transform: translate(0);
     }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        /* unde se termina*/
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block; /* sa nu se suprapuna peste header-primary-sub, sa fie un block nou */
+    border-radius: 100px;
+    transition: all .2s;
+    position: relative;
+}
+
+.btn:hover {
+    transform: translateY(-3px); /* merge in sus */
+    box-shadow: 0 5px 10px rgb(0, 0, 0, .2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.5) scaleY(2.6); /* scale - increases the element*/
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards;
 }
