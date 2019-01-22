@@ -1,0 +1,49 @@
+@keyframes moveInLeft {
+  0% {
+    /* unde incepe animatia*/
+    opacity: 0;
+    transform: translateX(-10rem);
+    /* translateX -> de la stanga la dreapta (e in directia X*/
+    /* un nr pozitiv => de la dr la st*/
+  }
+
+  80% {
+    transform: translateX(1rem) rotate(180deg);
+  }
+
+  100% {
+    /* unde se termina*/
+    opacity: 1;
+    transform: translate(0) rotate(180deg);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    /* unde se termina*/
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    /* unde se termina*/
+    opacity: 1;
+    transform: translate(0);
+  }
+}
