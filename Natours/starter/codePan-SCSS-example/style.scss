@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+$color-primary: #f9ed69; // yellow color
+$color-secondary: #f08a5d; // orange
+$color-tertiary: #b83b5e; // pink
+$color-text-dark: #333;
+$color-text-light: #eee;
+
+$width-button: 150px;
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+@mixin style-link-text($col) {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $col;
+}
+
+@function divide($a, $b) {
+  @return $a / $b;
+}
+
+nav {
+  margin: divide(60, 2) * 1px;//30px;
+  background-color: $color-primary;
+
+  @include clearfix;
+}
+
+.navigation {
+  list-style: none;
+  float: left;
+
+  li {
+    display: inline-block;
+    margin-left: 30px;
+
+    &:first-child { // inlocuieste 1) === .navigation li:first-child
+      margin: 0;
+    }
+
+    a:link {
+      @include style-link-text($color-text-dark);
+    }
+  }
+}
+
+// 1) --- li:first-child {
+//   margin: 0;
+// }
+
+.buttons {
+  float: right;
+}
+
+%btn-placeholder {
+  padding: 10px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 100px;
+  width: $width-button;
+
+  @include style-link-text($color-text-light); // inlocuieste 2, pt ca btn-...:link este scris de cate 2 ori
+}
+
+// 2) .btn-main:link,
+// .btn-hot:link {
+//   padding: 10px;
+//   display: inline-box;
+//   text-align: center;
+//   border-radius: 100px;
+//   width: $width-button;
+
+//   @include style-link-text($color-text-light);
+// }
+
+.btn-main {
+  &:link {
+    @extend %btn-placeholder;
+    background-color: $color-secondary;
+  }
+
+  &:hover {
+    background-color: darken($color-secondary, 15%);
+  }
+}
+
+.btn-hot {
+  &:link {
+    @extend %btn-placeholder;
+    background-color: $color-tertiary;
+  }
+
+  &:hover {
+    background-color: lighten($color-tertiary, 10%);
+  }
+}
