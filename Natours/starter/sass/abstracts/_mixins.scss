@@ -27,11 +27,11 @@
 1800px +;     Big desktop
 */
 
-@mixin respond-phone {
-  @media (max-width: 600px) {
-    @content
-  }
-}
+//@mixin respond-phone {
+//  @media (max-width: 600px) {
+//    @content
+//  }
+//}
 
 /*
 $breakpoint argument choices:
@@ -39,6 +39,8 @@ $breakpoint argument choices:
 - tab-port
 - tab-land
 - big-desktop
+
+ORDER: base + typography ? general layout + grid > page layout > components
 */
 
 // we will use em instead of rem (or px) for media queries, 1em = 16px
