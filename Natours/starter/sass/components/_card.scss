@@ -147,7 +147,9 @@
     font-weight: 100;
   }
 
-  @include respond(tab-port) {
+  //@include respond(tab-port) {
+  @media only screen and (max-width: 56.25em),
+  only screen and (hover: none) { // for touch screen
     // FUNCTIONALITY
     height: auto;
     border-radius: 3px;
@@ -170,7 +172,7 @@
     }
 
     &__details {
-      padding: 1 3rem;
+      padding: 1rem 3rem;
     }
 
     // BACK SIDE STYLING
