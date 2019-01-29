@@ -33,3 +33,9 @@ body {
   font-weight: 300;
   line-height: 1.6;
 }
+
+.container {
+  display: grid;
+  grid-template-rows: 80vh /*first row*/ min-content /*second */ 40vw /*3th*/ repeat(3, min-content) /*min content for the next 3 rows*/;
+  
+}
